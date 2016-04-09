@@ -57,18 +57,20 @@ public class ConfigActivity extends PreferenceActivity implements OnPreferenceCh
      * @return
      */
     public static int getObdUpdatePeriod(SharedPreferences prefs) {
-        String periodString = prefs.
-                getString(ConfigActivity.OBD_UPDATE_PERIOD_KEY, "4"); // 4 as in seconds
-        int period = 4000; // by default 4000ms
+        //String periodString = prefs.
+        //        getString(ConfigActivity.OBD_UPDATE_PERIOD_KEY, "1"); // 4 as in seconds
+        int period = 100; // by default 4000ms
 
+        /*
         try {
             period = (int) (Double.parseDouble(periodString) * 1000);
         } catch (Exception e) {
         }
 
         if (period <= 0) {
-            period = 4000;
+            period = 500;
         }
+        */
 
         return period;
     }

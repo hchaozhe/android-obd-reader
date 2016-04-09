@@ -462,8 +462,9 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
         // screen won't turn off until wakeLock.release()
         wakeLock.acquire();
 
-        if (prefs.getBoolean(ConfigActivity.ENABLE_FULL_LOGGING_KEY, false)) {
-
+        boolean xxx = prefs.getBoolean(ConfigActivity.ENABLE_FULL_LOGGING_KEY, false);
+        if (xxx) {
+            Log.d(TAG, String.valueOf(xxx));
             // Create the CSV Logger
             long mils = System.currentTimeMillis();
             SimpleDateFormat sdf = new SimpleDateFormat("_dd_MM_yyyy_HH_mm_ss");
@@ -473,6 +474,8 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
                         prefs.getString(ConfigActivity.DIRECTORY_FULL_LOGGING_KEY,
                                 getString(R.string.default_dirname_full_logging))
                 );
+                Log.d(TAG, myCSVWriter.toString());
+
             } catch (FileNotFoundException | RuntimeException e) {
                 Log.e(TAG, "Can't enable logging to file.", e);
             }
