@@ -38,6 +38,7 @@ public class LogCSVWriter {
 
         File sdCard = Environment.getExternalStorageDirectory();
         File dir = new File(sdCard.getAbsolutePath() + File.separator + dirname);
+        // add folder only if folder doesn't exist
         if (dir.mkdirs() || dir.canWrite()) {
             Log.d(TAG, "Path is " + sdCard.getAbsolutePath() + File.separator + dirname);
             File file = new File(dir, filename);
